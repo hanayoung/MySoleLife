@@ -36,9 +36,6 @@ class JoinActivity : AppCompatActivity() {
                 isGoToJoin=false
 
             }
-            if(pwd.isEmpty()){
-
-            }
             if(!pwd.equals(check)){
                 isGoToJoin=false
                 Toast.makeText(this,"Diff",Toast.LENGTH_SHORT).show()
