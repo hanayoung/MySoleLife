@@ -1,6 +1,13 @@
 package com.aoreo.mysolelife.fragments
 
+import android.content.Intent
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
+import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
+import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -45,5 +52,6 @@ class HomeFragment : Fragment() {
         }
         return binding.root
     }
+
 
 }

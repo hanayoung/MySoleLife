@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        findViewById<Button>(R.id.logoutBtn).setOnClickListener {
-//            auth.signOut()
-//            val intent= Intent(this, IntroActivity::class.java)
-//            intent.flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            startActivity(intent)
-//        }
+        findViewById<Button>(R.id.logoutBtn).setOnClickListener {
+            auth.signOut()
+            val intent= Intent(this, IntroActivity::class.java)
+            intent.flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
 //        findViewById<Button>(R.id.testBtn).setOnClickListener {
 //          val packageName : String= "com.skt.tmap.ku"
 //            fun isTmapisInstalled(packageName: String,packageManager: PackageManager):Boolean{
