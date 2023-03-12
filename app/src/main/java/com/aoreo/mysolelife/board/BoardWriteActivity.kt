@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.aoreo.mysolelife.R
@@ -14,6 +15,7 @@ import com.aoreo.mysolelife.contentsList.BookmarkModel
 import com.aoreo.mysolelife.databinding.ActivityBoardWriteBinding
 import com.aoreo.mysolelife.utils.FBAuth
 import com.aoreo.mysolelife.utils.FBRef
+import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.ByteArrayOutputStream
@@ -23,6 +25,8 @@ class BoardWriteActivity : AppCompatActivity() {
     private lateinit var binding : ActivityBoardWriteBinding
 
     private val TAG = BoardWriteActivity::class.java.simpleName
+
+    private var isImageUpload=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -52,7 +56,9 @@ class BoardWriteActivity : AppCompatActivity() {
                 .setValue(BoardModel(title,content,uid,time))
             Toast.makeText(this,"게시글 작성 완료",Toast.LENGTH_SHORT).show()
 
-            imageUpload()
+            if(isImageUpload){
+                imageUpload(key)
+            }
 
             finish()
 
@@ -60,17 +66,20 @@ class BoardWriteActivity : AppCompatActivity() {
         binding.imageArea.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery,100)
+            isImageUpload=true
         }
 
     }
 
-    private fun imageUpload(){
+
+
+    private fun imageUpload(key:String){
         // Get the data from an ImageView as bytes
         val imageView=binding.imageArea
 
         val storage = Firebase.storage
         val storageRef = storage.reference
-        val mountainsRef = storageRef.child("mountains.jpg")
+        val mountainsRef = storageRef.child(key+".png")
 
         imageView.isDrawingCacheEnabled = true
         imageView.buildDrawingCache()

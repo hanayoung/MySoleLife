@@ -27,6 +27,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/main_menu"
+            android:id="@+id/settingBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,24 +52,6 @@
         android:layout_marginTop="60dp"
          />
 
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOGOUT"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-<!--    <Button-->
-<!--        android:id="@+id/testBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Tmap"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/logoutBtn" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
